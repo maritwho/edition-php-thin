@@ -8,13 +8,13 @@ Pattern Lab uses [Composer](https://getcomposer.org/) to manage project dependen
 
 ### Download and Install Using the Bundled Version of Composer
 
-We don't expect everyone to have Composer installed so you can use a version of Composer that we bundle with the Thin Edition instead. The first thing to do is [download the Zip of the Thin Edition](https://github.com/pattern-lab/patternlab-php-thin/archive/master.zip).
+We don't expect everyone to have Composer installed. We bundle a version of Composer with the Thin Edition to make the install process go smoothly. 
 
-The second thing to do is to run Composer. If you're on a Mac just navigate to your downloaded copy of Pattern Lab, open `core/` and then `scripts/`. Double-click `installPatternLab.command` and Pattern Lab will set itself up. Alternatively, you can use your command line tool of choice and type the following within your downloaded copy:
+First, [download the Zip of the Thin Edition](https://github.com/pattern-lab/patternlab-php-thin/archive/master.zip).
 
-   php core/bin/composer.phar install
+Second, run Composer. If you're on a Mac just navigate to your downloaded copy of Pattern Lab, open `core > scripts`. Double-click `installPatternLab.command` and Pattern Lab will set itself up. Alternatively, you can use your command line tool of choice and type the following within your downloaded copy:
 
-If you have Composer installed you can also use its `create-project` feature.
+    php core/bin/composer.phar install
 
 ### Use Composer's create-project Feature
 
@@ -22,7 +22,7 @@ To use Composer's `create-project` feature type the following where you want to 
 
     composer create-project pattern-lab/framework-thin-edition your-project-name --prefer-dist
 
-This will create a directory called `your-project-name` and will install Pattern Lab's default folder structure as well Pattern Lab's core and dependencies into it.
+This will create a directory called `your-project-name`. It will also install Pattern Lab's default folder structure as well as core and its dependencies.
 
 ## Modifying the Thin Edition to Create Your Own Editions
 
@@ -30,6 +30,6 @@ To create your own editions all you need to do is fork this project and edit the
 
     "pattern-lab/patternengine-php-mustache": "v1.*"
 
-This ensures that not only is the Mustache Pattern Engine installed but also the default Mustache-based StyleguideKit as well.
+This ensures that the Mustache Pattern Engine is installed.
 
 You'll also want to make sure to edit information such as `name`, `description`, `authors`, etc. in `composer.json` as well so they match your project. Then add your project to [Packagist](https://packagist.org/) so others can download and use your edition as well.
