@@ -1,7 +1,7 @@
 <?php
 
 /*!
- * Pattern Lab Builder CLI - v0.7.12
+ * Pattern Lab Builder CLI
  *
  * Copyright (c) 2013-2014 Dave Olsen, http://dmolsen.com
  * Licensed under the MIT license
@@ -22,6 +22,8 @@ if (!function_exists("json_decode")) {
 $baseDir = __DIR__."/../";
 
 // auto-load classes
+$vendorDir = (is_dir($baseDir."_vendor")) ? "_vendor" : "vendor";
+
 if (file_exists($baseDir."vendor/autoload.php")) {
 	require($baseDir."vendor/autoload.php");
 } else {
