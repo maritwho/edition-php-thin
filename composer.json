@@ -13,7 +13,6 @@
 			"homepage":     "http://dmolsen.com",
 			"role":         "Lead Developer"
 		}
-		
 	],
 	"support": {
 		"issues":         "https://github.com/pattern-lab/edition-php-thin/issues",
@@ -40,6 +39,9 @@
 		],
 		"post-package-update": [
 			"PatternLab\\Installer::postPackageUpdate"
+		],
+		"pre-package-uninstall": [
+			"PatternLab\\Installer::prePackageUninstall"
 		]
 	}
 }
