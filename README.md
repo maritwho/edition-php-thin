@@ -1,62 +1,35 @@
-## About Pattern Lab
-- [Pattern Lab Website](http://patternlab.io/)
-- [About Pattern Lab](http://patternlab.io/about.html)
-- [Documentation](http://patternlab.io/docs/index.html)
-- [Demo](http://demo.patternlab.io/)
+# Pattern Lab Thin Edition
 
-The PHP version of Pattern Lab is, at its core, a static site generator. It combines platform-agnostic assets, like the [Mustache](http://mustache.github.io/)-based patterns and the JavaScript-based viewer, with a PHP-based "builder" that transforms and dynamically builds the Pattern Lab site. By making it a static site generator, Pattern Lab strongly separates patterns, data, and presentation from build logic. 
+The Thin Edition of Pattern Lab is meant to serve as a clean base upon which you can build your own custom editions of Pattern Lab. The only thing that is installed with the Thin Edition is [Pattern Lab Core](https://github.com/pattern-lab/patternlab-php-core).
 
-## Demo
+## Installing
 
-You can play with a demo of the front-end of Pattern Lab at [demo.patternlab.io](http://demo.patternlab.io).
+Pattern Lab uses [Composer](https://getcomposer.org/) to manage project dependencies. The Thin Edition of Pattern Lab can be installed in one of two ways:
 
-## Getting Started
+### Download and Install Using the Bundled Version of Composer
 
-* [Requirements](http://patternlab.io/docs/requirements.html)
-* [Installing the PHP Version of Pattern Lab](http://patternlab.io/docs/installation.html)
-* [Upgrading the PHP Version of Pattern Lab](http://patternlab.io/docs/upgrading.html)
-* [Generating the Pattern Lab Website for the First Time](http://patternlab.io/docs/first-run.html)
-* [Editing the Pattern Lab Website Source Files](http://patternlab.io/docs/editing-source-files.html)
-* [Using the Command-line Options](http://patternlab.io/docs/command-line.html)
-* [Command Prompt on Windows](http://patternlab.io/docs/command-prompt-windows.html)
+We don't expect everyone to have Composer installed. We bundle a version of Composer with the Thin Edition to make the install process go smoothly. 
 
-## Working with Patterns
+First, [download the Zip of the Thin Edition](https://github.com/pattern-lab/patternlab-php-thin/archive/master.zip).
 
-Patterns are the core element of Pattern Lab. Understanding how they work is the key to getting the most out of the system. Patterns use [Mustache](http://mustache.github.io/) so please read [Mustache's docs](http://mustache.github.io/mustache.5.html) as well.
+Second, run Composer. If you're on a Mac just navigate to your downloaded copy of Pattern Lab, open `core > scripts`. Double-click `installPatternLab.command`. Pattern Lab will set itself up. Alternatively, you can use your command line tool of choice and type the following within your downloaded copy:
 
-* [How Patterns Are Organized](http://patternlab.io/docs/pattern-organization.html)
-* [Adding New Patterns](http://patternlab.io/docs/pattern-add-new.html)
-* [Reorganizing Patterns](http://patternlab.io/docs/pattern-reorganizing.html)
-* [Including One Pattern Within Another via Partials](http://patternlab.io/docs/pattern-including.html)
-* [Managing Assets for a Pattern: JavaScript, images, CSS, etc.](http://patternlab.io/docs/pattern-managing-assets.html)
-* [Modifying the Pattern Header and Footer](http://patternlab.io/docs/pattern-header-footer.html)
-* [Using Pseudo-Patterns](http://patternlab.io/docs/pattern-pseudo-patterns.html)
-* [Using Pattern Parameters](http://patternlab.io/docs/pattern-parameters.html)
-* [Using Pattern State](http://patternlab.io/docs/pattern-states.html)
-* ["Hiding" Patterns in the Navigation](http://patternlab.io/docs/pattern-hiding.html)
-* [Adding Annotations](http://patternlab.io/docs/pattern-adding-annotations.html)
-* [Viewing Patterns on a Mobile Device](http://patternlab.io/docs/pattern-mobile-view.html)
+    php core/bin/composer.phar install
 
-## Creating & Working With Dynamic Data for a Pattern
+### Use Composer's create-project Feature
 
-The PHP version of Pattern Lab utilizes Mustache as the template language for patterns. In addition to allowing for the [inclusion of one pattern within another](http://patternlab.io/docs/pattern-including.html) it also gives pattern developers the ability to include variables. This means that attributes like image sources can be centralized in one file for easy modification across one or more patterns. The PHP version of Pattern Lab uses a JSON file, `source/_data/data.json`, to centralize many of these attributes.
+To use Composer's `create-project` feature type the following where you want to install Pattern Lab:
 
-* [Introduction to JSON & Mustache Variables](http://patternlab.io/docs/data-json-mustache.html)
-* [Overriding the Central `data.json` Values with Pattern-specific Values](http://patternlab.io/docs/data-pattern-specific.html)
-* [Linking to Patterns with Pattern Lab's Default `link` Variable](http://patternlab.io/docs/data-link-variable.html)
-* [Creating Lists with Pattern Lab's Default `listItems` Variable](http://patternlab.io/docs/data-listitems.html)
+    composer create-project pattern-lab/framework-thin-edition your-project-name --prefer-dist
 
-## Using Pattern Lab's Advanced Features
+This will create a directory called `your-project-name`. It will also install Pattern Lab's default folder structure as well as core and its dependencies.
 
-By default, the Pattern Lab assets can be manually generated and the Pattern Lab site manually refreshed but who wants to waste time doing that? Here are some ways that Pattern Lab can make your development workflow a little smoother:
+## Modifying the Thin Edition to Create Your Own Editions
 
-* [Watching for Changes and Auto-Regenerating Patterns](http://patternlab.io/docs/advanced-auto-regenerate.html)
-* [Auto-Reloading the Browser Window When Changes Are Made](http://patternlab.io/docs/advanced-reload-browser.html)
-* [Multi-browser & Multi-device Testing with Page Follow](http://patternlab.io/docs/advanced-page-follow.html)
-* [Keyboard Shortcuts](http://patternlab.io/docs/advanced-keyboard-shortcuts.html)
-* [Special Pattern Lab-specific Query String Variables ](http://patternlab.io/docs/pattern-linking.html)
-* [Preventing the Cleaning of public/](http://patternlab.io/docs/advanced-clean-public.html)
-* [Generating CSS](http://patternlab.io/docs/advanced-generating-css.html)
-* [Modifying the Pattern Lab Nav](http://patternlab.io/docs/advanced-pattern-lab-nav.html)
-* [Editing the config.ini Options](http://patternlab.io/docs/advanced-config-options.html)
-* [Integration with Compass](http://patternlab.io/docs/advanced-integration-with-compass.html)
+To create your own editions all you need to do is fork this project and edit the `composer.json` file to include the features that make sense for your project. For example, if you wanted to include Mustache as the default Pattern Engine for your edition you'd add the following to `composer.json` under the `require` section:
+
+    "pattern-lab/patternengine-php-mustache": "v1.*"
+
+This ensures that the Mustache Pattern Engine is installed.
+
+You'll also want to make sure to edit information such as `name`, `description`, `authors`, etc. in `composer.json` as well so they match your project. Then add your project to [Packagist](https://packagist.org/) so others can download and use your edition as well.

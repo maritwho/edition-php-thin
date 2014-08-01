@@ -1,7 +1,7 @@
 <?php
 
 /*!
- * Pattern Lab Builder CLI - v0.7.12
+ * Pattern Lab Builder CLI
  *
  * Copyright (c) 2013-2014 Dave Olsen, http://dmolsen.com
  * Licensed under the MIT license
@@ -11,6 +11,7 @@
 use \PatternLab\Config;
 use \PatternLab\Console;
 use \PatternLab\Dispatcher;
+use \PatternLab\Timer;
 
 // check to see if json_decode exists. might be disabled in installs of PHP 5.5
 if (!function_exists("json_decode")) {
@@ -22,13 +23,18 @@ if (!function_exists("json_decode")) {
 $baseDir = __DIR__."/../";
 
 // auto-load classes
+$vendorDir = (is_dir($baseDir."_vendor")) ? "_vendor" : "vendor";
+
 if (file_exists($baseDir."vendor/autoload.php")) {
 	require($baseDir."vendor/autoload.php");
 } else {
 	print "it doesn't appear that pattern lab has been set-up yet...\n";
-	print "please install pattern lab's dependicies by typing: php core/bin/composer.phar install...\n";
+	print "please install pattern lab's dependencies by typing: php core/bin/composer.phar install...\n";
 	exit;
 }
+
+// start the timer
+Timer::start();
 
 // load the options
 Console::init();
@@ -36,7 +42,7 @@ Config::init($baseDir);
 
 // initialize the dispatcher & note that the config has been loaded
 Dispatcher::init();
-Dispatcher::$instance->dispatch("config.configLoadEnd");
+Dispatcher::getInstance()->dispatch("config.configLoadEnd");
 
 // run the console
 Console::run();

@@ -1,5 +1,5 @@
 {
-	"name":             "pattern-lab/framework-thin-edition",
+	"name":             "pattern-lab/edition-thin",
 	"description":      "The thin edition of Pattern Lab. It only installs Pattern Lab core.",
 	"version":          "0.7.12",
 	"keywords":         ["pattern lab"],
@@ -16,9 +16,9 @@
 		
 	],
 	"support": {
-		"issues":         "https://github.com/pattern-lab/patternlab-php/issues",
+		"issues":         "https://github.com/pattern-lab/edition-php-thin/issues",
 		"wiki":           "http://patternlab.io/docs/",
-		"source":         "https://github.com/pattern-lab/patternlab-php/releases"
+		"source":         "https://github.com/pattern-lab/edition-php-thin/releases"
 	},
 	"autoload": {
 		"psr-0": {
@@ -30,11 +30,6 @@
 	"require": {
 		"php": ">=5.3.6",
 		"pattern-lab/core": "dev-dev"
-	},
-	"extra": {
-		"branch-alias": {
-			"dev-master": "dev-dev"
-		}
 	},
 	"scripts": {
 		"pre-install-cmd": [
