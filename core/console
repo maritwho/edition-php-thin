@@ -23,8 +23,6 @@ if (!function_exists("json_decode")) {
 $baseDir = __DIR__."/../";
 
 // auto-load classes
-$vendorDir = (is_dir($baseDir."_vendor")) ? "_vendor" : "vendor";
-
 if (file_exists($baseDir."vendor/autoload.php")) {
 	require($baseDir."vendor/autoload.php");
 } else {

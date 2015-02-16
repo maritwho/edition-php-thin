@@ -20,7 +20,7 @@ Second, run Composer. If you're on a Mac just navigate to your downloaded copy o
 
 To use Composer's `create-project` feature type the following where you want to install Pattern Lab:
 
-    composer create-project pattern-lab/framework-thin-edition your-project-name --prefer-dist
+    composer create-project pattern-lab/edition-thin your-project-name --prefer-dist
 
 This will create a directory called `your-project-name`. It will also install Pattern Lab's default folder structure as well as core and its dependencies.
 
@@ -28,7 +28,7 @@ This will create a directory called `your-project-name`. It will also install Pa
 
 To create your own editions all you need to do is fork this project and edit the `composer.json` file to include the features that make sense for your project. For example, if you wanted to include Mustache as the default Pattern Engine for your edition you'd add the following to `composer.json` under the `require` section:
 
-    "pattern-lab/patternengine-php-mustache": "v1.*"
+    "pattern-lab/patternengine-mustache": "dev-dev"
 
 This ensures that the Mustache Pattern Engine is installed.
 
