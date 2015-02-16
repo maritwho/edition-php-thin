@@ -1,7 +1,6 @@
 {
 	"name":             "pattern-lab/edition-thin",
 	"description":      "The thin edition of Pattern Lab. It only installs Pattern Lab core.",
-	"version":          "0.7.12",
 	"keywords":         ["pattern lab"],
 	"homepage":         "http://patternlab.io",
 	"license":          "MIT",
