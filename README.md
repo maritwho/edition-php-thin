@@ -20,7 +20,7 @@ Second, run Composer. If you're on a Mac just navigate to your downloaded copy o
 
 To use Composer's `create-project` feature type the following where you want to install Pattern Lab:
 
-    composer create-project pattern-lab/edition-thin your-project-name --prefer-dist
+    composer create-project pattern-lab/edition-thin your-project-name
 
 This will create a directory called `your-project-name`. It will also install Pattern Lab's default folder structure as well as core and its dependencies.
 
