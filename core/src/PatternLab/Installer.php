@@ -13,68 +13,84 @@
 namespace PatternLab;
 
 use \Composer\Script\Event;
+use \Composer\Installer\PackageEvent;
 use \PatternLab\InstallerUtil;
 
 class Installer {
-	
+
 	/**
 	 * Run the PL tasks when a package is installed
 	 * @param  {Object}     a script event object from composer
 	 */
-	public static function postPackageInstall(Event $event) {
-		
+	public static function postCreateProjectCmd(Event $event) {
+
 		// make sure pattern lab has been loaded
 		if (class_exists("\PatternLab\Config")) {
-			
-			InstallerUtil::postPackageInstall($event);
-			
+
+			InstallerUtil::postCreateProjectCmd($event);
+
 		}
-		
+
 	}
-	
+
+	/**
+	 * Run the PL tasks when a package is installed
+	 * @param  {Object}     a script event object from composer
+	 */
+	public static function postPackageInstall(PackageEvent $event) {
+
+		// make sure pattern lab has been loaded
+		if (class_exists("\PatternLab\Config")) {
+
+			InstallerUtil::postPackageInstall($event);
+
+		}
+
+	}
+
 	/**
 	 * Run the PL tasks when a package is updated
 	 * @param  {Object}     a script event object from composer
 	 */
-	public static function postPackageUpdate(Event $event) {
-		
+	public static function postPackageUpdate(PackageEvent $event) {
+
 		// make sure pattern lab has been loaded
 		if (class_exists("\PatternLab\Config")) {
-			
+
 			InstallerUtil::postPackageUpdate($event);
-			
+
 		}
-		
+
 	}
-	
+
 	/**
 	 * Make sure certain things are set-up before running composer's install
 	 * @param  {Object}     a script event object from composer
 	 */
 	public static function preInstallCmd(Event $event) {
-		
+
 		// make sure pattern lab has been loaded
 		if (class_exists("\PatternLab\Config")) {
-			
+
 			InstallerUtil::preInstallCmd($event);
-			
+
 		}
-		
+
 	}
-	
+
 	/**
 	 * Run the PL tasks when a package is removed
 	 * @param  {Object}     a script event object from composer
 	 */
-	public static function prePackageUninstall(Event $event) {
-		
+	public static function prePackageUninstall(PackageEvent $event) {
+
 		// make sure pattern lab has been loaded
 		if (class_exists("\PatternLab\Config")) {
-			
+
 			InstallerUtil::prePackageUninstallCmd($event);
-			
+
 		}
-		
+
 	}
-	
+
 }
