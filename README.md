@@ -12,7 +12,7 @@ We don't expect everyone to have Composer installed. We bundle a version of Comp
 
 First, [download the Zip of the Thin Edition](https://github.com/pattern-lab/patternlab-php-thin/archive/master.zip).
 
-Second, run Composer. If you're on a Mac just navigate to your downloaded copy of Pattern Lab, open `core > scripts`. Double-click `installPatternLab.command`. Pattern Lab will set itself up. Alternatively, you can use your command line tool of choice and type the following within your downloaded copy:
+Second, run Composer. If you're on a Mac navigate to your downloaded copy of Pattern Lab, open `core > scripts`. Double-click `installPatternLab.command`. Pattern Lab will set itself up. Alternatively, you can use your command line tool of choice and type the following within your downloaded copy:
 
     php core/bin/composer.phar install
 
