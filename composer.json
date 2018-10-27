@@ -13,6 +13,12 @@
 			"role":         "Lead Developer"
 		}
 	],
+	"repositories": [
+		{
+			"type": "git",
+			"url": "https://github.com/maritwho/patternlab-php-core.git"
+		}
+	],
 	"support": {
 		"issues":         "https://github.com/pattern-lab/edition-php-thin/issues",
 		"wiki":           "http://patternlab.io/docs/",
@@ -25,7 +31,7 @@
 	},
 	"require": {
 		"php": ">=5.3.6",
-		"pattern-lab/core": "^2.0.0"
+		"pattern-lab/core": "dev-typo3fluid"
 	},
 	"scripts": {
 		"post-install-cmd": [
